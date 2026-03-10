@@ -1,0 +1,205 @@
+/* Reset e estilos gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #020617 100%);
+    color: #e5e7eb;
+    min-height: 100vh;
+}
+
+/* Seção superior */
+.top-sec {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.top-sec::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.18) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.top-art {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.top-div h1 {
+    color: #38bdf8;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+    animation: fadeInUp 1s ease-out;
+}
+
+.top-div-info p {
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    color: #e0e0e0;
+    font-weight: 300;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+/* Seção do meio */
+.mid-sec {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #020617 0%, #020617 30%, #111827 100%);
+    position: relative;
+}
+
+.mid-art {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.mid-art h2 {
+    color: #38bdf8;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: 600;
+    text-shadow: 0 0 15px rgba(0, 191, 255, 0.2);
+}
+
+.ul-mid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.ul-mid li {
+    background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+    padding: 25px;
+    border-radius: 12px;
+    font-size: 1.1em;
+    color: #e5e7eb;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(56, 189, 248, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+.ul-mid li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 191, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.ul-mid li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.25);
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
+.ul-mid li:hover::before {
+    left: 100%;
+}
+
+/* Seção de imagens */
+.base-sec {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+    text-align: center;
+}
+
+.images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.images img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.8);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(56, 189, 248, 0.25);
+}
+
+.images img:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 20px 40px rgba(56, 189, 248, 0.35);
+    border-color: rgba(56, 189, 248, 0.75);
+}
+
+/* Rodapé */
+footer {
+    background: linear-gradient(135deg, #020617 0%, #020617 50%, #020617 100%);
+    color: #6b7280;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9em;
+    border-top: 1px solid rgba(0, 191, 255, 0.1);
+}
+
+/* Animações */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .top-sec, .mid-sec, .base-sec {
+        padding: 50px 15px;
+    }
+    
+    .ul-mid {
+        grid-template-columns: 1fr;
+    }
+    
+    .images {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .images img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-sec, .mid-sec, .base-sec {
+        padding: 40px 10px;
+    }
+    
+    .ul-mid li {
+        padding: 20px;
+        font-size: 1rem;
+    }
+}
+
